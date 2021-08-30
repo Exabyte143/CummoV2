@@ -18,10 +18,6 @@ exports.Command = {
         let member = message.guild.members.cache.get(await utils_1.Utils.getUserIDFromMention(args));
         try {
             await member.roles.remove(role);
-            role = member.roles.cache.find((role) => role.name == "Verified");
-            if (role) {
-                member.roles.add(role);
-            }
             utils_1.Utils.success(message, `Successfully free ${member.displayName}`);
         }
         catch (error) {
