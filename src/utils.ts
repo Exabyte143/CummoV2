@@ -1,6 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
 
-const THEME_COLOR = "8C00FF";
+const THEME_COLOR = "#586AEA";
 
 export const Utils = {
 	getUserIDFromMention: async function (mention: String) {
