@@ -1,0 +1,20 @@
+{
+	"name": "cummo",
+	"version": "2.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "tsc && node out"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@typeit/discord": "^4.0.10",
+		"discord.js": "^12.5.3",
+		"tslib": "^2.3.1"
+	},
+	"devDependencies": {
+		"@types/node": "^16.7.2"
+	}
+}

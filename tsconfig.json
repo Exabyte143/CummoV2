@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2017",
+		"noImplicitAny": false,
+		"sourceMap": true,
+		"outDir": "out",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["es2017", "esnext.asynciterable", "DOM"],
+		"moduleResolution": "node"
+	},
+	"exclude": ["node_modules", "src/commands/template"],
+	"include": ["src/index.ts", "src/commands/*"]
+}
