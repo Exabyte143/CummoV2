@@ -51,7 +51,7 @@ AppDiscord = tslib_1.__decorate([
     discord_1.Discord()
 ], AppDiscord);
 async function start() {
-    const token = "ODgwNTMwMjE1ODQxOTc2MzQx.YSfnqg.yf36pUZ95WKF-PGgP1Lzk7MA_ss";
+    const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.NcwzSCbd78Pw_PZhNny1b99SIyA";
     const client = new discord_1.Client({
         classes: [
             `${__dirname}/*Discord.ts`,

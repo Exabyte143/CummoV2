@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Utils = void 0;
 const discord_js_1 = require("discord.js");
-const THEME_COLOR = "8C00FF";
+const THEME_COLOR = "#586AEA";
 exports.Utils = {
     getUserIDFromMention: async function (mention) {
         return mention.slice(3, -1);
