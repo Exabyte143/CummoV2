@@ -35,7 +35,7 @@ abstract class AppDiscord {
 }
 
 async function start() {
-	const token = "ODgwNTMwMjE1ODQxOTc2MzQx.YSfnqg.yf36pUZ95WKF-PGgP1Lzk7MA_ss";
+	const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.NcwzSCbd78Pw_PZhNny1b99SIyA";
 	const client = new Client({
 		classes: [
 			`${__dirname}/*Discord.ts`, // glob string to load the classes
