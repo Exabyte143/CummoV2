@@ -12,7 +12,7 @@ abstract class AppDiscord {
 		if (!message.content.startsWith(this.prefix) || message.author.bot) {
 			return;
 		}
-		let args = message.content.split(" ")[1];
+		let args = message.content.split(message.content.split(" ")[0])[1];
 		let command = message.content.split(" ")[0].split(";")[1];
 		try {
 			if (message.member.roles.cache.find((role) => role.name === commands[command].Role) || commands[command].Role == "any") {
@@ -22,10 +22,7 @@ abstract class AppDiscord {
 				// Checks if the user has the correct perms
 				commands[command].Run(args, message, client);
 			}
-		} catch (error) {
-			let errorEmbed = new discord.MessageEmbed().setColor("#FF0000").setTitle("An error has occured").setDescription(`Here is some fancy debug information!\n\`${error}\``);
-			message.reply(errorEmbed);
-		}
+		} catch {}
 	}
 
 	@On("ready")

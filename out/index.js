@@ -14,7 +14,7 @@ let AppDiscord = class AppDiscord {
         if (!message.content.startsWith(this.prefix) || message.author.bot) {
             return;
         }
-        let args = message.content.split(" ")[1];
+        let args = message.content.split(message.content.split(" ")[0])[1];
         let command = message.content.split(" ")[0].split(";")[1];
         try {
             if (message.member.roles.cache.find((role) => role.name === commands[command].Role) || commands[command].Role == "any") {
@@ -26,10 +26,7 @@ let AppDiscord = class AppDiscord {
                 commands[command].Run(args, message, client);
             }
         }
-        catch (error) {
-            let errorEmbed = new discord.MessageEmbed().setColor("#FF0000").setTitle("An error has occured").setDescription(`Here is some fancy debug information!\n\`${error}\``);
-            message.reply(errorEmbed);
-        }
+        catch (_a) { }
     }
     async onReady() {
         console.log("bot is ready");
