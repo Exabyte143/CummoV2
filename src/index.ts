@@ -6,14 +6,14 @@ let commands = {};
 
 @Discord()
 abstract class AppDiscord {
-	prefix = ";";
+	prefix = "$";
 	@On("message")
 	private async onMessage([message]: ArgsOf<"message">, client: Client) {
 		if (!message.content.startsWith(this.prefix) || message.author.bot) {
 			return;
 		}
-		let args = message.content.split(message.content.split(" ")[0])[1];
-		let command = message.content.split(" ")[0].split(";")[1];
+		let args = message.content.split(message.content.split(" ")[0] + " ")[1];
+		let command = message.content.split(" ")[0].split(this.prefix)[1];
 		try {
 			if (message.member.roles.cache.find((role) => role.name === commands[command].Role) || commands[command].Role == "any") {
 				// Checks is user has the correct roles
@@ -32,7 +32,7 @@ abstract class AppDiscord {
 }
 
 async function start() {
-	const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.NcwzSCbd78Pw_PZhNny1b99SIyA";
+	const token = "ODgwNTMwMjE1ODQxOTc2MzQx.YSfnqg.yf36pUZ95WKF-PGgP1Lzk7MA_ss";
 	const client = new Client({
 		classes: [
 			`${__dirname}/*Discord.ts`, // glob string to load the classes
