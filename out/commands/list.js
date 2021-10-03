@@ -12,7 +12,7 @@ exports.Command = {
     Usage: "list",
     Run: async function (args, message, client) {
         // TODO add command functionality
-        const embed = new discord_js_1.MessageEmbed().setColor(await utils_1.Utils.getThemeColor()).setDescription("Here is a list of commands, use $help [COMMAND] for more info.");
+        const embed = new discord_js_1.MessageEmbed().setColor(await utils_1.Utils.getThemeColor()).setDescription("Here is a list of commands, use ;info [COMMAND] for more info.");
         for (const [key, value] of Object.entries(index_1.commands)) {
             if (value["Name"] != "N/A") {
                 embed.addField(value["Name"], "||\n||", false);

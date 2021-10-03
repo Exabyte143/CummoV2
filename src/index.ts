@@ -6,7 +6,7 @@ export let commands = {};
 
 @Discord()
 abstract class AppDiscord {
-	prefix = "$";
+	prefix = ";";
 	@On("message")
 	private async onMessage([message]: ArgsOf<"message">, client: Client) {
 		if (!message.content.startsWith(this.prefix) || message.author.bot) {
@@ -26,13 +26,14 @@ abstract class AppDiscord {
 	}
 
 	@On("ready")
-	private async onReady() {
+	private async onReady(_: any, client: Client) {
 		console.log("bot is ready");
+		client.user.setActivity(`${this.prefix}list | Exabyte`, { type: "PLAYING" });
 	}
 }
 
 async function start() {
-	const token = "ODgwNTMwMjE1ODQxOTc2MzQx.YSfnqg.yf36pUZ95WKF-PGgP1Lzk7MA_ss";
+	const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.49yRE10QEVOHh0xrwD2Zt4HzHvI";
 	const client = new Client({
 		classes: [
 			`${__dirname}/*Discord.ts`, // glob string to load the classes

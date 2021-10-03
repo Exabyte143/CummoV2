@@ -9,7 +9,7 @@ const discord = require("discord.js");
 exports.commands = {};
 let AppDiscord = class AppDiscord {
     constructor() {
-        this.prefix = "$";
+        this.prefix = ";";
     }
     async onMessage([message], client) {
         if (!message.content.startsWith(this.prefix) || message.author.bot) {
@@ -29,8 +29,9 @@ let AppDiscord = class AppDiscord {
         }
         catch (_a) { }
     }
-    async onReady() {
+    async onReady(_, client) {
         console.log("bot is ready");
+        client.user.setActivity(`${this.prefix}list | Exabyte`, { type: "PLAYING" });
     }
 };
 tslib_1.__decorate([
@@ -42,14 +43,14 @@ tslib_1.__decorate([
 tslib_1.__decorate([
     discord_1.On("ready"),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:paramtypes", [Object, discord_1.Client]),
     tslib_1.__metadata("design:returntype", Promise)
 ], AppDiscord.prototype, "onReady", null);
 AppDiscord = tslib_1.__decorate([
     discord_1.Discord()
 ], AppDiscord);
 async function start() {
-    const token = "ODgwNTMwMjE1ODQxOTc2MzQx.YSfnqg.yf36pUZ95WKF-PGgP1Lzk7MA_ss";
+    const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.49yRE10QEVOHh0xrwD2Zt4HzHvI";
     const client = new discord_1.Client({
         classes: [
             `${__dirname}/*Discord.ts`,

@@ -10,7 +10,7 @@ export const Command = {
 	Usage: "list",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
-		const embed = new MessageEmbed().setColor(await Utils.getThemeColor()).setDescription("Here is a list of commands, use $help [COMMAND] for more info.");
+		const embed = new MessageEmbed().setColor(await Utils.getThemeColor()).setDescription("Here is a list of commands, use ;info [COMMAND] for more info.");
 
 		for (const [key, value] of Object.entries(commands)) {
 			if (value["Name"] != "N/A") {
