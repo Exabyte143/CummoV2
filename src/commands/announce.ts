@@ -6,6 +6,7 @@ export const Command = {
 	Description: "Used for announcing things in the announcement channel.",
 	Permissions: Permissions.FLAGS.ADMINISTRATOR,
 	Role: "📢",
+	Usage: "unban [DESCRIPTION]^^[IMAGEURL]",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
 		if (args === undefined) {
@@ -16,7 +17,11 @@ export const Command = {
 		const announceEmbed = new MessageEmbed()
 			.setColor(await Utils.getThemeColor())
 			.setTitle(`Announcement from ${message.member.displayName}`)
-			.setDescription(args);
+			.setDescription(args.split("^^")[0]);
+
+		try {
+			announceEmbed.setImage(args.split("^^")[1]);
+		} catch (error) {}
 		await announceChannel.send("@everyone", { embed: announceEmbed });
 		await message.delete();
 	},

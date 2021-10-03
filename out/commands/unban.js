@@ -8,6 +8,7 @@ exports.Command = {
     Description: "Unbans a user.",
     Permissions: discord_js_1.Permissions.FLAGS.BAN_MEMBERS,
     Role: "N/A",
+    Usage: "unban [USERID]",
     Run: async function (args, message, client) {
         // TODO add command functionality
         if (args === undefined) {

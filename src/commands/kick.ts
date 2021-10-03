@@ -7,6 +7,7 @@ export const Command = {
 	Description: "Kicks a user from the server.",
 	Permissions: Permissions.FLAGS.KICK_MEMBERS,
 	Role: "N/A",
+	Usage: "kick [USERMENTION]",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
 		if (args === undefined) {

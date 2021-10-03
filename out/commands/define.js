@@ -10,30 +10,31 @@ exports.Command = {
     Description: "Gets a definition from the website Urban Dictionary.",
     Permissions: "any",
     Role: "any",
+    Usage: "define [QUERY]",
     Run: async function (args, message, client) {
         // TODO add command functionality
         const searchingMessage = await message.channel.send("Searching...");
         console.log(args);
         const data = qs.stringify({
-            'query': args
+            query: args,
         });
         /*
-         const config = {
-           method: 'post',
-           url: 'https://UrbanDictionary.xenonxyz08.repl.co/search',
-           headers: {
-             'Content-Type': 'application/x-www-form-urlencoded'
-           },
-           data : data
-         };
-         */
-        axios_1.default({
+          const config = {
             method: 'post',
             url: 'https://UrbanDictionary.xenonxyz08.repl.co/search',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+              'Content-Type': 'application/x-www-form-urlencoded'
             },
-            data: data
+            data : data
+          };
+          */
+        axios_1.default({
+            method: "post",
+            url: "https://UrbanDictionary.xenonxyz08.repl.co/search",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            data: data,
         })
             .then(async function (request) {
             const definition = request.data;

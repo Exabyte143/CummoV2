@@ -8,6 +8,7 @@ exports.Command = {
     Description: "Sends someone to the gulag",
     Permissions: discord_js_1.Permissions.FLAGS.ADMINISTRATOR,
     Role: "N/A",
+    Usage: "free [USERMENTION]",
     Run: async function (args, message, client) {
         // TODO add command functionality
         if (args === undefined) {

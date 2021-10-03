@@ -6,6 +6,7 @@ exports.Command = {
     Description: "N/A",
     Permissions: "any",
     Role: "any",
+    Usage: "N/A",
     Run: async function (args, message, client) {
         // TODO add command functionality
     },

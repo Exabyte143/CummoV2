@@ -9,6 +9,7 @@ exports.Command = {
     Description: "Bans a user from the server.",
     Permissions: discord_js_1.Permissions.FLAGS.BAN_MEMBERS,
     Role: "N/A",
+    Usage: "ban [USERMENTION]",
     Run: async function (args, message, client) {
         // TODO add command functionality
         if (args === undefined) {

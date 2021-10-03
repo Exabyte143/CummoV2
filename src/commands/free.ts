@@ -6,6 +6,7 @@ export const Command = {
 	Description: "Sends someone to the gulag",
 	Permissions: Permissions.FLAGS.ADMINISTRATOR,
 	Role: "N/A",
+	Usage: "free [USERMENTION]",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
 		if (args === undefined) {

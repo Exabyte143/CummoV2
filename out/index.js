@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.commands = void 0;
 const tslib_1 = require("tslib");
 // Use the Client that are provided by @typeit/discord NOT discord.js
 const discord_1 = require("@typeit/discord");
 const fs = require("fs");
 const discord = require("discord.js");
-let commands = {};
+exports.commands = {};
 let AppDiscord = class AppDiscord {
     constructor() {
         this.prefix = "$";
@@ -17,13 +18,13 @@ let AppDiscord = class AppDiscord {
         let args = message.content.split(message.content.split(" ")[0] + " ")[1];
         let command = message.content.split(" ")[0].split(this.prefix)[1];
         try {
-            if (message.member.roles.cache.find((role) => role.name === commands[command].Role) || commands[command].Role == "any") {
+            if (message.member.roles.cache.find((role) => role.name === exports.commands[command].Role) || exports.commands[command].Role == "any") {
                 // Checks is user has the correct roles
-                commands[command].Run(args, message, client);
+                exports.commands[command].Run(args, message, client);
             }
-            else if (message.member.permissions.has(commands[command].Permissions) || commands[command].Permissions == "any") {
+            else if (message.member.permissions.has(exports.commands[command].Permissions) || exports.commands[command].Permissions == "any") {
                 // Checks if the user has the correct perms
-                commands[command].Run(args, message, client);
+                exports.commands[command].Run(args, message, client);
             }
         }
         catch (_a) { }
@@ -62,7 +63,7 @@ async function start() {
         if (file != "template.js") {
             console.log(`${file} loaded successfully`);
             const command = require(`./commands/${file.split(".")[0]}`).Command;
-            commands[command.Name] = command;
+            exports.commands[command.Name] = command;
         }
     }
     console.log("commands loaded succesfully");

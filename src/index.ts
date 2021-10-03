@@ -2,7 +2,7 @@
 import { ArgsOf, Client, Discord, On, Once } from "@typeit/discord";
 import * as fs from "fs";
 const discord = require("discord.js");
-let commands = {};
+export let commands = {};
 
 @Discord()
 abstract class AppDiscord {
@@ -50,6 +50,7 @@ async function start() {
 		}
 	}
 	console.log("commands loaded succesfully");
+
 	await client.login(token);
 }
 

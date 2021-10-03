@@ -8,6 +8,7 @@ exports.Command = {
     Description: "Used to delete multiple messages",
     Permissions: discord_js_1.Permissions.FLAGS.MANAGE_MESSAGES,
     Role: "N/A",
+    Usage: "purge [AMOUNT]",
     Run: async function (args, message) {
         // TODO add command functionality
         if (args === undefined) {

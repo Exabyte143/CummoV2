@@ -6,6 +6,7 @@ export const Command = {
 	Description: "Unbans a user.",
 	Permissions: Permissions.FLAGS.BAN_MEMBERS,
 	Role: "N/A",
+	Usage: "unban [USERID]",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
 		if (args === undefined) {

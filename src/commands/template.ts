@@ -6,6 +6,7 @@ export const Command = {
 	Description: "N/A",
 	Permissions: "any",
 	Role: "any",
+	Usage: "N/A",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
 	},

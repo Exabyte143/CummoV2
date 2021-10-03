@@ -6,6 +6,7 @@ export const Command = {
 	Description: "Used to delete multiple messages",
 	Permissions: Permissions.FLAGS.MANAGE_MESSAGES,
 	Role: "N/A",
+	Usage: "purge [AMOUNT]",
 	Run: async function (args: string, message: any) {
 		// TODO add command functionality
 		if (args === undefined) {

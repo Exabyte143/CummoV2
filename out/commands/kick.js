@@ -9,6 +9,7 @@ exports.Command = {
     Description: "Kicks a user from the server.",
     Permissions: discord_js_1.Permissions.FLAGS.KICK_MEMBERS,
     Role: "N/A",
+    Usage: "kick [USERMENTION]",
     Run: async function (args, message, client) {
         // TODO add command functionality
         if (args === undefined) {
