@@ -51,7 +51,6 @@ async function start() {
 		}
 	}
 	console.log("commands loaded succesfully");
-
 	await client.login(token);
 }
 
