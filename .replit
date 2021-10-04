@@ -1,1 +1,1 @@
-run="./repl.deploy --standalone npm start"
+run="npm start"
