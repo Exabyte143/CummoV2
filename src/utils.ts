@@ -2,7 +2,7 @@ import { Message, MessageEmbed } from "discord.js";
 
 const THEME_COLOR = "#586AEA";
 const announcementChanels = {
-	"890257300458205226": "889979699823001601", // IBPD
+	"887805411338625126": "889979699823001601", // IBPD
 	"724098045964189777": "780626498351661056", // Family
 };
 
