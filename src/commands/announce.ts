@@ -13,7 +13,7 @@ export const Command = {
 			Utils.error(message, "You forgot to add an argument.");
 			return;
 		}
-		const announceChannel: any = client.channels.cache.get("780626498351661056");
+		const announceChannel: any = client.channels.cache.get(await Utils.getAnnouncementChannel(message.guild.id));
 		const announceEmbed = new MessageEmbed()
 			.setColor(await Utils.getThemeColor())
 			.setTitle(`Announcement from ${message.member.displayName}`)

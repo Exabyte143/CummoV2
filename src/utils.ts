@@ -1,6 +1,10 @@
 import { Message, MessageEmbed } from "discord.js";
 
 const THEME_COLOR = "#586AEA";
+const announcementChanels = {
+	"890257300458205226": "889979699823001601", // IBPD
+	"724098045964189777": "780626498351661056", // Family
+};
 
 export const Utils = {
 	getUserIDFromMention: async function (mention: String) {
@@ -16,5 +20,8 @@ export const Utils = {
 	},
 	getThemeColor: async function () {
 		return THEME_COLOR;
+	},
+	getAnnouncementChannel: async function (guildID: string) {
+		return announcementChanels[guildID];
 	},
 };
