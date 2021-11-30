@@ -33,14 +33,14 @@ abstract class AppDiscord {
 }
 
 async function start() {
-	const express = require("express.js");
-	const app = express();
-	const port = 8080;
-
-	app.get('/', (req, res) => {
-		res.send("cummov2");
-	});
 	
+	var http = require('http');//create a server object:
+	http.createServer(function (req, res) {
+  		res.write('Hello World!'); //write a response
+  		res.end(); //end the response
+	}).listen(3000, function() {
+ 		console.log("server start at port 3000"); //the server object listens on port 3000
+	});
 	
 	fs.readFile(`${__dirname}/../secrets.json`, "utf-8", async (err, data) => {
 		if (err) {
