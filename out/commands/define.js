@@ -28,7 +28,7 @@ exports.Command = {
             data : data
           };
           */
-        axios_1.default({
+        (0, axios_1.default)({
             method: "post",
             url: "https://UrbanDictionary.xenonxyz08.repl.co/search",
             headers: {

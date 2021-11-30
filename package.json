@@ -8,7 +8,7 @@
 		"start": "tsc && node out"
 	},
 	"author": "",
-	"license": "ISC",
+	"license": "GPL",
 	"dependencies": {
 		"@typeit/discord": "^4.0.10",
 		"axios": "^0.21.4",

@@ -33,25 +33,31 @@ abstract class AppDiscord {
 }
 
 async function start() {
-	const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.49yRE10QEVOHh0xrwD2Zt4HzHvI";
-	const client = new Client({
-		classes: [
-			`${__dirname}/*Discord.ts`, // glob string to load the classes
-			`${__dirname}/*Discord.js`, // If you compile using "tsc" the file extension change to .js
-		],
-		silent: false,
-		variablesChar: ":",
-	});
-	const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter((file) => file.endsWith(".js"));
-	for (const file of commandFiles) {
-		if (file != "template.js") {
-			console.log(`${file} loaded successfully`);
-			const command = require(`./commands/${file.split(".")[0]}`).Command;
-			commands[command.Name] = command;
+	fs.readFile(`${__dirname}/../secrets.json`, "utf-8", async (err, data) => {
+		if (err) {
+			throw err;
 		}
-	}
-	console.log("commands loaded succesfully");
-	await client.login(token);
+		const secrets = JSON.parse(data);
+	
+		const client = new Client({
+			classes: [
+				`${__dirname}/*Discord.ts`, // glob string to load the classes
+				`${__dirname}/*Discord.js`, // If you compile using "tsc" the file extension change to .js
+			],
+			silent: false,
+			variablesChar: ":",
+		});
+		const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter((file) => file.endsWith(".js"));
+		for (const file of commandFiles) {
+			if (file != "template.js") {
+				console.log(`${file} loaded successfully`);
+				const command = require(`./commands/${file.split(".")[0]}`).Command;
+				commands[command.Name] = command;
+			}
+		}
+		console.log("commands loaded succesfully");
+		await client.login(secrets["DiscordToken"]);
+	});
 }
 
 start();

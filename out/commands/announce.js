@@ -15,7 +15,7 @@ exports.Command = {
             utils_1.Utils.error(message, "You forgot to add an argument.");
             return;
         }
-        const announceChannel = client.channels.cache.get("780626498351661056");
+        const announceChannel = client.channels.cache.get(await utils_1.Utils.getAnnouncementChannel(message.guild.id));
         const announceEmbed = new discord_js_1.MessageEmbed()
             .setColor(await utils_1.Utils.getThemeColor())
             .setTitle(`Announcement from ${message.member.displayName}`)

@@ -34,41 +34,46 @@ let AppDiscord = class AppDiscord {
         client.user.setActivity(`${this.prefix}list | Exabyte`, { type: "PLAYING" });
     }
 };
-tslib_1.__decorate([
-    discord_1.On("message"),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, discord_1.Client]),
-    tslib_1.__metadata("design:returntype", Promise)
+(0, tslib_1.__decorate)([
+    (0, discord_1.On)("message"),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [Object, discord_1.Client]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
 ], AppDiscord.prototype, "onMessage", null);
-tslib_1.__decorate([
-    discord_1.On("ready"),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, discord_1.Client]),
-    tslib_1.__metadata("design:returntype", Promise)
+(0, tslib_1.__decorate)([
+    (0, discord_1.On)("ready"),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [Object, discord_1.Client]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
 ], AppDiscord.prototype, "onReady", null);
-AppDiscord = tslib_1.__decorate([
-    discord_1.Discord()
+AppDiscord = (0, tslib_1.__decorate)([
+    (0, discord_1.Discord)()
 ], AppDiscord);
 async function start() {
-    const token = "NzgxMjUwMjAyMDE4NjQzOTY4.X7658w.49yRE10QEVOHh0xrwD2Zt4HzHvI";
-    const client = new discord_1.Client({
-        classes: [
-            `${__dirname}/*Discord.ts`,
-            `${__dirname}/*Discord.js`, // If you compile using "tsc" the file extension change to .js
-        ],
-        silent: false,
-        variablesChar: ":",
-    });
-    const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter((file) => file.endsWith(".js"));
-    for (const file of commandFiles) {
-        if (file != "template.js") {
-            console.log(`${file} loaded successfully`);
-            const command = require(`./commands/${file.split(".")[0]}`).Command;
-            exports.commands[command.Name] = command;
+    fs.readFile(`${__dirname}/../secrets.json`, "utf-8", async (err, data) => {
+        if (err) {
+            throw err;
         }
-    }
-    console.log("commands loaded succesfully");
-    await client.login(token);
+        const secrets = JSON.parse(data);
+        const client = new discord_1.Client({
+            classes: [
+                `${__dirname}/*Discord.ts`,
+                `${__dirname}/*Discord.js`, // If you compile using "tsc" the file extension change to .js
+            ],
+            silent: false,
+            variablesChar: ":",
+        });
+        const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter((file) => file.endsWith(".js"));
+        for (const file of commandFiles) {
+            if (file != "template.js") {
+                console.log(`${file} loaded successfully`);
+                const command = require(`./commands/${file.split(".")[0]}`).Command;
+                exports.commands[command.Name] = command;
+            }
+        }
+        console.log("commands loaded succesfully");
+        await client.login(secrets["DiscordToken"]);
+    });
 }
 start();
 //# sourceMappingURL=index.js.map
