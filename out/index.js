@@ -6,6 +6,7 @@ const tslib_1 = require("tslib");
 const discord_1 = require("@typeit/discord");
 const fs = require("fs");
 const discord = require("discord.js");
+require("dotenv").config();
 exports.commands = {};
 let AppDiscord = class AppDiscord {
     constructor() {
@@ -57,30 +58,24 @@ async function start() {
     }).listen(3000, function () {
         console.log("server start at port 3000"); //the server object listens on port 3000
     });
-    fs.readFile(`${__dirname}/../secrets.json`, "utf-8", async (err, data) => {
-        if (err) {
-            throw err;
-        }
-        const secrets = JSON.parse(data);
-        const client = new discord_1.Client({
-            classes: [
-                `${__dirname}/*Discord.ts`,
-                `${__dirname}/*Discord.js`, // If you compile using "tsc" the file extension change to .js
-            ],
-            silent: false,
-            variablesChar: ":",
-        });
-        const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter((file) => file.endsWith(".js"));
-        for (const file of commandFiles) {
-            if (file != "template.js") {
-                console.log(`${file} loaded successfully`);
-                const command = require(`./commands/${file.split(".")[0]}`).Command;
-                exports.commands[command.Name] = command;
-            }
-        }
-        console.log("commands loaded succesfully");
-        await client.login(secrets["DiscordToken"]);
+    const client = new discord_1.Client({
+        classes: [
+            `${__dirname}/*Discord.ts`,
+            `${__dirname}/*Discord.js`, // If you compile using "tsc" the file extension change to .js
+        ],
+        silent: false,
+        variablesChar: ":",
     });
+    const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter((file) => file.endsWith(".js"));
+    for (const file of commandFiles) {
+        if (file != "template.js") {
+            console.log(`${file} loaded successfully`);
+            const command = require(`./commands/${file.split(".")[0]}`).Command;
+            exports.commands[command.Name] = command;
+        }
+    }
+    console.log("commands loaded succesfully");
+    await client.login(process.env.DISCORDTOKEN);
 }
 start();
 //# sourceMappingURL=index.js.map

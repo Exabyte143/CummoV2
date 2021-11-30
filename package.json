@@ -13,6 +13,7 @@
 		"@typeit/discord": "^4.0.10",
 		"axios": "^0.21.4",
 		"discord.js": "^12.5.3",
+		"dotenv": "^10.0.0",
 		"express.js": "^1.0.0",
 		"qs": "^6.7.0",
 		"sqlite3": "^5.0.2",
