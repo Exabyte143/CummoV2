@@ -33,6 +33,15 @@ abstract class AppDiscord {
 }
 
 async function start() {
+	const express = require("express.js");
+	const app = express();
+	const port = 8080;
+
+	app.get('/', (req, res) => {
+		res.send("cummov2");
+	});
+	
+	
 	fs.readFile(`${__dirname}/../secrets.json`, "utf-8", async (err, data) => {
 		if (err) {
 			throw err;
