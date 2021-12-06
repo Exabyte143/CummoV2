@@ -12,6 +12,12 @@ export const Command = {
 	Usage: "define [QUERY]",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
+		if (!args)
+		{
+			Utils.error(message, "You need to add a search query.");
+			return;
+		}
+		
 		const searchingMessage = await message.channel.send("Searching...");
 
 		const data = qs.stringify({
@@ -42,7 +48,8 @@ export const Command = {
 				message.reply(embed);
 			})
 			.catch(function (error) {
-				console.log(error);
+				searchingMessage.delete();
+				Utils.error(message, `Here is some fancy debug information!\n\`${error}\``);
 			});
 	},
 };

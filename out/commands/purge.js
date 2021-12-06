@@ -20,7 +20,7 @@ exports.Command = {
             if (numbers > 100) {
                 let i;
                 let tempNumbers = numbers;
-                console.log(numbers / 100);
+                utils_1.Utils.log(numbers / 100);
                 for (i = 0; i < numbers / 100; i++) {
                     tempNumbers -= 100;
                     await message.channel.bulkDelete(100);

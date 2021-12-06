@@ -24,4 +24,9 @@ export const Utils = {
 	getAnnouncementChannel: async function (guildID: string) {
 		return announcementChanels[guildID];
 	},
+	log: async function (message: any) {
+		if (process.env.DEBUG == "TRUE") {
+			console.log(message);
+		}
+	}
 };

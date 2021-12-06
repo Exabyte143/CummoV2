@@ -13,6 +13,10 @@ exports.Command = {
     Usage: "define [QUERY]",
     Run: async function (args, message, client) {
         // TODO add command functionality
+        if (!args) {
+            utils_1.Utils.error(message, "You need to add a search query.");
+            return;
+        }
         const searchingMessage = await message.channel.send("Searching...");
         const data = qs.stringify({
             query: args,
@@ -39,11 +43,11 @@ exports.Command = {
                 .addFields({ name: "Example", value: definition["Example"] })
                 .setURL(`https://www.urbandictionary.com/define.php?term=${args.replace(' ', "%20")}`)
                 .setFooter(definition["Contributor"], "https://media.discordapp.net/attachments/689538198111649867/817925344841433098/ud.png");
-            console.log(`https://www.urbandictionary.com/define.php?term=${args.replace(' ', "%20")}`);
             message.reply(embed);
         })
             .catch(function (error) {
-            console.log(error);
+            searchingMessage.delete();
+            utils_1.Utils.error(message, `Here is some fancy debug information!\n\`${error}\``);
         });
     },
 };

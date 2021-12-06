@@ -25,5 +25,10 @@ exports.Utils = {
     getAnnouncementChannel: async function (guildID) {
         return announcementChanels[guildID];
     },
+    log: async function (message) {
+        if (process.env.DEBUG == "TRUE") {
+            console.log(message);
+        }
+    }
 };
 //# sourceMappingURL=utils.js.map
