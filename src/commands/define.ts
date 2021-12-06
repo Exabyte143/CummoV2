@@ -39,7 +39,6 @@ export const Command = {
 					.addFields({ name: "Example", value: definition["Example"] })
 					.setURL(`https://www.urbandictionary.com/define.php?term=${args.replace(' ', "%20")}`)
 					.setFooter(definition["Contributor"], "https://media.discordapp.net/attachments/689538198111649867/817925344841433098/ud.png");
-				console.log(`https://www.urbandictionary.com/define.php?term=${args.replace(' ', "%20")}`);
 				message.reply(embed);
 			})
 			.catch(function (error) {
