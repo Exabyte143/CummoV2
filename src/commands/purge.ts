@@ -19,7 +19,7 @@ export const Command = {
 			if (numbers > 100) {
 				let i: number;
 				let tempNumbers = numbers;
-				console.log(numbers / 100);
+				Utils.log(numbers / 100);
 				for (i = 0; i < numbers / 100; i++) {
 					tempNumbers -= 100;
 					await message.channel.bulkDelete(100);
