@@ -6,7 +6,7 @@ export const Command = {
 	Description: "Used for announcing things in the announcement channel.",
 	Permissions: Permissions.FLAGS.ADMINISTRATOR,
 	Role: "📢",
-	Usage: "unban [DESCRIPTION]^^[IMAGEURL]",
+	Usage: "announce [DESCRIPTION]^^[IMAGEURL]",
 	Run: async function (args: string, message: Message, client: Client) {
 		// TODO add command functionality
 		if (args === undefined) {
