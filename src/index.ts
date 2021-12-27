@@ -5,6 +5,8 @@ const discord = require("discord.js");
 require("dotenv").config();
 export let commands = {};
 
+export const startTime: number = Date.now();
+
 @Discord()
 abstract class AppDiscord {
 	prefix = ";";
